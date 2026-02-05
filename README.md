@@ -26,8 +26,6 @@ plt.show()
 - SQL is the most requested skill for Data analyst and Data Scientist, as it is present in more than half of the job postings
 - DAta Enginners require more specialized skills like AWS , Azure , Spark compared to Data Analyst and Data Scientist
 
-// -----------------------
-
 ## How are in-demand skills trending for Data Analysts
 
 View my notebook with detailed steps here:
@@ -71,3 +69,38 @@ plt.show()
 - Tableau (and other BI tools) show moderate but stable demand, reinforcing their importance for data visualization rather than primary analysis.
 
 - Overall, the trends suggest that while foundational tools remain essential, employers increasingly value a balanced and adaptable data analytics skill set.
+
+## How do salaries vary by top 6 roles in united states
+
+View my notebook with detailed steps here:
+[2_Skill_Demand.ipynb](4_Salary_Analysis.ipynb)
+
+### Visualize Data
+
+```python
+sns.boxplot(data=df_us_top6 , x = 'salary_year_avg' , y = 'job_title_short' , order=job_order)
+sns.set_theme(style='ticks')
+plt.title('Salary Distribution in the United States')
+plt.xlabel('Yearly Salary in USD')
+plt.ylabel('')
+plt.xlim(0 , 600000)
+ticks_x = plt.FuncFormatter(lambda y , pos: f'${int(y/100)}K')
+plt.gca().xaxis.set_major_formatter(ticks_x)
+plt.show()
+```
+
+### Result
+
+![Visualization of Salaries of top 6 data roles in United States](images\skill_analysis.png)
+
+### Insights
+
+- Senior roles consistently earn higher median salaries than their non-senior counterparts, confirming the strong salary premium associated with experience and leadership responsibilities.
+
+- Data Scientists and Data Engineers show higher salary distributions compared to Data Analysts, reflecting the technical complexity and specialization required in these roles.
+
+- Senior Data Scientists have the highest median salary among all roles, along with a wide spread, indicating both high earning potential and variability based on domain expertise and company size.
+
+- Data Analyst roles have the lowest median salaries but also tighter distributions, suggesting more standardized compensation and lower variance across companies.
+
+- The presence of high-end outliers across all roles (especially in engineering and scientist positions) suggests that top-paying opportunities exist, likely driven by niche skills, big tech companies, or high-cost locations.
