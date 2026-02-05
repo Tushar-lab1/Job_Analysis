@@ -25,3 +25,49 @@ plt.show()
 - Python is a versatile skill, highly in demand across all three roles. 72% for Data Scientists and 65% for Data Enginners
 - SQL is the most requested skill for Data analyst and Data Scientist, as it is present in more than half of the job postings
 - DAta Enginners require more specialized skills like AWS , Azure , Spark compared to Data Analyst and Data Scientist
+
+// -----------------------
+
+## How are in-demand skills trending for Data Analysts
+
+View my notebook with detailed steps here:
+[2_Skill_Demand.ipynb](3_Skill_Trend.ipynb)
+
+### Visualize Data
+
+```python
+df_plot = df_da_us_perc.iloc[:, :5]
+
+
+sns.set_theme(style='ticks')
+sns.lineplot(data=df_plot, dashes=False, palette='tab10', legend=False)
+sns.despine()
+
+
+plt.xlabel('2023')
+plt.ylabel('Likelihood in Job Posting')
+plt.title('Trending job skills for data analytics')
+
+
+for i in range(5):
+plt.text(11.2, df_plot.iloc[-1, i], df_plot.columns[i])
+
+
+plt.show()
+```
+
+### Result
+
+![Visualization of Trending skills for Data Nerds](images\trending_skills.png)
+
+### Insights
+
+- SQL remains the most in-demand skill throughout the year, though it shows a gradual decline toward the end, indicating slight diversification in required skill sets.
+
+- Excel stays consistently important but experiences a noticeable dip mid-to-late year before rebounding, suggesting seasonal or role-specific demand shifts.
+
+- Python maintains a steady presence across months, highlighting its role as a core analytical skill rather than a seasonal requirement.
+
+- Tableau (and other BI tools) show moderate but stable demand, reinforcing their importance for data visualization rather than primary analysis.
+
+- Overall, the trends suggest that while foundational tools remain essential, employers increasingly value a balanced and adaptable data analytics skill set.
